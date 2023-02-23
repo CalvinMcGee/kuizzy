@@ -29,7 +29,7 @@ socket.on("question", (question) => {
     }).then(answer => {
         socket.emit("answer", question.answers[answer - 1]) // We subtract 1 because arrays start at 0 and not 1
         swal({
-            title: "Waiting for others",
+            title: "Väntar på andra",
             buttons: false,
             content: loader,
             closeOnClickOutside: false,
@@ -39,15 +39,15 @@ socket.on("question", (question) => {
 })
 
 socket.on("connected", async _ => {
-    const name = await swal("Your name:", {
+    const name = await swal("Ditt namn:", {
         content: "input",
-        button: "Join",
+        button: "Gå med",
         closeOnClickOutside: false,
         closeOnEsc: false,
     })
     socket.emit("name", name)
     swal({
-        title: "Waiting for host",
+        title: "Väntar på värd",
         buttons: false,
         content: loader,
         closeOnClickOutside: false,
@@ -57,8 +57,8 @@ socket.on("connected", async _ => {
 
 socket.on("correct", async _ => {
     swal({
-        title: "Correct!",
-        text: "Keep it up :)",
+        title: "Rätt!",
+        text: "Fortsätt så :)",
         icon: "success",
         buttons: false,
         closeOnClickOutside: false,
@@ -68,8 +68,8 @@ socket.on("correct", async _ => {
 
 socket.on("incorrect", async _ => {
     swal({
-        title: "Incorrect!",
-        text: "Better luck next time :(",
+        title: "Fel!",
+        text: "Bättre lycka nästa gång :(",
         icon: "error",
         buttons: false,
         closeOnClickOutside: false,
@@ -79,8 +79,8 @@ socket.on("incorrect", async _ => {
 
 socket.on("noAnswer", async _ => {
     swal({
-        title: "Time's up!",
-        text: "You need to be quicker",
+        title: "Tiden är ute!",
+        text: "Du måste svara snabbare",
         icon: "error",
         buttons: false,
         closeOnClickOutside: false,
@@ -94,7 +94,7 @@ socket.on("gameover", async (leaderboard) => {
         leaderboardDisplay.innerHTML += `<li>${player[0]}: ${player[1]}</li>`
     }
     swal({
-        title: "Game over!",
+        title: "Spelet slut!",
         icon: "info",
         content: leaderboardDisplay,
         buttons: false,

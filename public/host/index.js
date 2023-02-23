@@ -7,15 +7,15 @@ loader.classList.add("loader")
 
 socket.on("connected", async () => {
     swal({
-        title: "Players:",
-        button: "Start",
+        title: "Spelare:",
+        button: "Starta",
         content: players,
         closeOnClickOutside: false,
         closeOnEsc: false,
     }).then(_ => {
         socket.emit("start")
         swal({
-            title: "Waiting for players to answer",
+            title: "Väntar på att spelare skall svara",
             buttons: false,
             content: loader,
             closeOnClickOutside: false,
@@ -29,14 +29,14 @@ socket.on("timeUp", async (scores) => {
 
     swal({
         title: "Leaderboard:",
-        button: "Next",
+        button: "Nästa",
         content: scoreDisplay,
         closeOnClickOutside: false,
         closeOnEsc: false,
     }).then(_ => {
         socket.emit("next")
         swal({
-            title: "Waiting for players to answer",
+            title: "Väntar på att spelare skall svara",
             buttons: false,
             content: loader,
             closeOnClickOutside: false,
@@ -59,7 +59,7 @@ socket.on("gameover", async (leaderboard) => {
         leaderboardDisplay.innerHTML += `<li>${player[0]}: ${player[1]}</li>`
     }
     swal({
-        title: "Game over!",
+        title: "Spelet slut!",
         icon: "info",
         content: leaderboardDisplay,
         buttons: false,

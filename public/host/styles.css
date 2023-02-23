@@ -20,7 +20,7 @@ ul {
 }
 
 ul:empty::after {
-    content: "No players yet!"
+    content: "Inga spelare än!"
 }
 
 .loader {

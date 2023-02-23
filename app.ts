@@ -10,7 +10,7 @@ const timeUpEvent = new events.EventEmitter()
 
 const questions = [
     {
-        text: "What is 1+1?",
+        text: "Vad är 1+1?",
         time: 20,
         answers: [
             "0",
@@ -21,7 +21,7 @@ const questions = [
         correctAnswer: "2",
     },
     {
-        text: "What is 2+2?",
+        text: "Vad är 2+2?",
         time: 20,
         answers: [
             "2",
